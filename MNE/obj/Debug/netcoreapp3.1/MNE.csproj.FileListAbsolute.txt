@@ -1,0 +1,13 @@
+G:\Development Projects\MNE\MNE\bin\Debug\netcoreapp3.1\MNE.exe
+G:\Development Projects\MNE\MNE\bin\Debug\netcoreapp3.1\MNE.deps.json
+G:\Development Projects\MNE\MNE\bin\Debug\netcoreapp3.1\MNE.runtimeconfig.json
+G:\Development Projects\MNE\MNE\bin\Debug\netcoreapp3.1\MNE.runtimeconfig.dev.json
+G:\Development Projects\MNE\MNE\bin\Debug\netcoreapp3.1\MNE.dll
+G:\Development Projects\MNE\MNE\bin\Debug\netcoreapp3.1\MNE.pdb
+G:\Development Projects\MNE\MNE\obj\Debug\netcoreapp3.1\MNE.csprojAssemblyReference.cache
+G:\Development Projects\MNE\MNE\obj\Debug\netcoreapp3.1\MNE.AssemblyInfoInputs.cache
+G:\Development Projects\MNE\MNE\obj\Debug\netcoreapp3.1\MNE.AssemblyInfo.cs
+G:\Development Projects\MNE\MNE\obj\Debug\netcoreapp3.1\MNE.csproj.CoreCompileInputs.cache
+G:\Development Projects\MNE\MNE\obj\Debug\netcoreapp3.1\MNE.dll
+G:\Development Projects\MNE\MNE\obj\Debug\netcoreapp3.1\MNE.pdb
+G:\Development Projects\MNE\MNE\obj\Debug\netcoreapp3.1\MNE.genruntimeconfig.cache
