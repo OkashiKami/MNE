@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Net;
@@ -13,15 +14,33 @@ namespace MNE
         private static List<Client> _clients = new List<Client>();
         static void Main(string[] args)
         {
-            Log("Hello World!");
             _listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             _listener.Bind(new IPEndPoint(IPAddress.Any, 22605));
             if (!_listener.IsBound) return;
             _listener.Listen(1000);
+            Log("You can press <color=yellow>Any Key</color> at any time to <color=red>Exit</color> this application.");
             Log($"Server <color=green>Started</color> waiting for connections...");
             _listener.BeginAccept(new AsyncCallback(OnClientAccepted), null);
 
-            Log("Press anykey to <color=red>Exit</color> this application.");
+            byte[] buffer;
+            using (var packet = new Packet())
+            {
+                packet.Write(PacketHeader.Welcome);
+                packet.Write("Thanks for joining our server.");
+
+                buffer = packet;
+            }
+
+            using(var packet = new Packet(buffer))
+            {
+                Log($"<color={ConsoleColor.Gray}>================================================");
+                Log($"<color={ConsoleColor.Cyan}>Header</color>:   {packet.ReadHeader}");
+                Log($"<color={ConsoleColor.Yellow}>Message</color>:  {packet.ReadString}");
+                Log($"<color={ConsoleColor.Gray}>================================================");
+            }
+
+
+
             Console.ReadKey();
             _listener.Dispose();
         }
@@ -49,7 +68,7 @@ namespace MNE
             Console.Write($" #  ");
             Console.ForegroundColor = ConsoleColor.White;
             var chars = data.ToCharArray();
-            for (int a = 0; a < chars.Length; a++)
+            for (int a = 0; a < chars.Length - 1; a++)
             {
                 if (chars[a].Equals('<'))
                 {
@@ -76,8 +95,8 @@ namespace MNE
                         Console.ForegroundColor = _color;
                     }
                 }
-
-                Console.Write(chars[a]);
+                if (a < chars.Length)
+                    Console.Write(chars[a]);
             }
 
 
